@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+<h1>Person index</h1>
+<a href="new">Add person</a>
+
+<table border="1" cellpadding="2">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Social security #</th>
+        <th>Phone #</th>
+    </tr>
+    <tr th:each="person: ${all_persons}">
+        <td th:text="${person.id}">id</td>
+        <td th:text="${person.fullName}">fullName</td>
+        <td th:text="${person.address}">address</td>
+        <td th:text="${person.email}">email</td>
+        <td th:text="${person.socialSecurityNumber}">socialSecurityNumber</td>
+        <td th:text="${person.phoneNumber}">phoneNumber</td>
+        <td>
+            <a th:href="@{'/edit/'+${person.id}}">edit</a>
+            <a th:href="@{'/delete/'+${person.id}}">delete</a>
+        </td>
+
+    </tr>
+
+
+
+
+
+</table>
+</body>
+</html>
